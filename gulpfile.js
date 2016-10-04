@@ -38,12 +38,16 @@ gulp.task("compile:scripts:web", ["env:set-release"], function () {
 	config.entry = {joust: config.entry.joust}; // remove all bundles but joust
 	config.target = "web";
 	config.plugins = config.plugins.concat([
-		new webpack.optimize.UglifyJsPlugin({
+		new webpack.LoaderOptionsPlugin({
+			minimize: true,
+			debug: false
+		}),
+		/*new webpack.optimize.UglifyJsPlugin({
 			comments: false,
 			compress: {
 				warnings: false
 			}
-		}),
+		}),*/
 		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
 			JOUST_RELEASE: JSON.stringify(process.env.JOUST_RELEASE)
