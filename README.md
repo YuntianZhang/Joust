@@ -10,16 +10,23 @@ HearthStone replays in your browser, written in Typescript with React.
 - Node.js ~v6.6 (v4.5 should also work, but is not officially supported)
 - Compiling: `npm install -g gulp webpack`
 - Development: `npm install -g electron-prebuilt gulp webpack`
+- [yarn](https://yarnpkg.com/) (optional): `npm install -g yarn`
 
 
 ## Compiling
 
 ```
-npm install
+yarn
 ```
 
 ```
 gulp compile
+```
+
+### Alternatively
+
+```
+npm install
 ```
 
 
