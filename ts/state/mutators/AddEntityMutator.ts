@@ -55,12 +55,13 @@ export default class AddEntityMutator implements GameStateMutator {
 	}
 
 	private isCoin(potentialCoin: Entity, state: GameState): boolean {
+		let player = state.getPlayer(potentialCoin.getTag(GameTag.CONTROLLER));
 		return (
 			potentialCoin.getTag(GameTag.ZONE) === Zone.HAND &&
 			potentialCoin.getTag(GameTag.ZONE_POSITION) === 5 &&
 			state.game.getTag(GameTag.MULLIGAN_STATE) === Mulligan.INVALID &&
 			state.game.getTag(GameTag.STEP) === Step.INVALID &&
-			!state.getPlayer(potentialCoin.getTag(GameTag.CONTROLLER)).getTag(GameTag.FIRST_PLAYER)
+			player && !player.getTag(GameTag.FIRST_PLAYER)
 		);
 	}
 }
