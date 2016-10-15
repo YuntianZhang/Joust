@@ -33,7 +33,10 @@ export default class GameStateTracker extends Stream.Transform {
 		this.gameState = this.gameState.apply(mutator);
 		if (oldState !== this.gameState) {
 			this.push(this.gameState);
-			this.time(mutator as GameStateMutator);
+			if(mutator instanceof TagChangeMutator) {
+				this.gameState = this.gameState.apply(new IncrementTimeMutator(1));
+			}
+			//this.time(mutator as GameStateMutator);
 			//this.push(this.gameState);
 		}
 		callback();

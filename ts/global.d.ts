@@ -63,3 +63,9 @@ declare module "react-dimensions" {
 
 	export default Dimensions;
 }
+
+declare module "byline" {
+	import * as Stream from "stream";
+
+	export function createStream(stream?): Stream.Duplex;
+}
