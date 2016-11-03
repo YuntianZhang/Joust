@@ -68,6 +68,7 @@ export default class SetupWidget extends React.Component<SetupWidgetProps, Setup
 		return (
 			<div className="setup-widget">
 				{hsreplay}
+				{kettle}
 			</div>
 		);
 	}
