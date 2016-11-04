@@ -94,8 +94,6 @@ export default class KettleEncoder extends Stream.Readable implements Interactiv
 	protected queueMessage(payload) {
 		let message = JSON.stringify(payload);
 		let length = message.length;
-		this.push(length.toString());
-		this.push("\n");
-		this.push(message);
+		this.push(length.toString()+"\n"+message);
 	}
 }
