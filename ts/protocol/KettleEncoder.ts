@@ -94,11 +94,8 @@ export default class KettleEncoder extends Stream.Readable implements Interactiv
 	protected queueMessage(payload) {
 		let message = JSON.stringify(payload);
 		let length = message.length;
-		// todo: we need to properly encode the length (see onData)
-		let buffer = new Buffer(((number: number, length: number) => {
-			return Array(length - (number + '').length + 1).join('0') + number;
-		})(length, 4) + message, 'utf-8');
-
-		this.push(buffer.toString('utf-8'));
+		this.push(length.toString());
+		this.push("\n");
+		this.push(message);
 	}
 }
