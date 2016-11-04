@@ -27,7 +27,7 @@ export default class KettleEncoder extends Stream.Readable implements Interactiv
 			return result;
 		};
 
-		this.queueMessage([{
+		this.queueMessage({
 			Type: 'CreateGame',
 			CreateGame: {
 				Players: [
@@ -43,7 +43,7 @@ export default class KettleEncoder extends Stream.Readable implements Interactiv
 					}
 				]
 			}
-		}]);
+		});
 	}
 
 	public exitGame(): void {
